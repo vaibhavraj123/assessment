@@ -17,10 +17,10 @@ def index(req):
     
     ans = isPalindrome(strr)
     if ans == strr:
-        req.write("<html><br><body><br><h2 style='color:green;'>given string is palindrome<br></h2><br></body><br></html>")
+        req.write("given string is palindrome")
         
     else:
-        req.write("<html><br><body><h2 style='color:red;'>given string is not palindrome</h2><br><body><br></html>")
+        req.write("given string is not palindrome")
     
     
     
