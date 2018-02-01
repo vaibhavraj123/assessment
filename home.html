@@ -9,17 +9,45 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
 <div class="container">
   <h2>Please give input string</h2>
-    <form action="http://localhost/vaibhav_raj_mishra/palindrome.py/index" method="POST" enctype="application/json">
-    <div class="form-group">
-      <label for="usr">Input String:</label>
-      <input type="text" id="usr" name="usr"  class="form-control">
-    </div>
-    <input type="submit" class="btn btn-info" value="Submit">
-    </form>
+  
+   <div class="row form-group">
+	<div class="col-sm-4">
+      		<label for="usr">Input String:
+      		<input type="text" id="usr" name="usr"  class="form-control">
+		</label>
+	</div>
+	<div class="col-sm-4">
+		<br>
+    		<input id="submit" type="submit" class="btn btn-info" value="Submit">
+	</div>
+	<div class="col-sm-4"></div>
+    
+   </div>
+	<div class="row" id="adminMassage">
+		<label style="padding:15px" id="result"></label>
+	</div>
 </div>
-
+<script>
+  $(document).ready(function(){
+       $("#submit").click(function(){
+		var formData = $("#usr").val();
+        	$.ajax({
+			url:"http://localhost/vaibhav_raj_mishra/palindrome.py/index",
+			type:"post",
+			data:{'usr':formData},
+			success:function(response){
+				$("#result").html(response);
+                                $("#usr").val("");
+                                $("#usr").focus();
+			},
+			error:function(response){
+				alert("Not work");
+			}
+		});
+	  });
+  });
+</script>
 </body>
 </html>
